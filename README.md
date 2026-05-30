@@ -18,3 +18,7 @@ ufw disable
 
 systemctl stop firewalld && systemctl disable firewalld
 
+关闭ipv4
+
+for iface in $(ls /sys/class/net/); do ip addr flush dev $iface scope global; done
+
