@@ -34,7 +34,12 @@ ip addr
 # 2. 临时关闭eth0的IPv4（重启恢复）
 ip addr flush dev enp6s18 scope global
 
-关闭ipv4
+
+# 自动获取物理网卡并临时关闭其IPv4（重启恢复）
+NIC=$(ip -4 addr show | awk '/inet/ && $2 !~ /^127/ {print $NF; exit}') && ip addr flush dev $NIC scope global && echo "已临时关闭网卡 $NIC 的IPv4（重启恢复）"
+
+
+永久关闭ipv4
 
 # 1. 自动获取物理网卡名
 NIC=$(ip -4 addr show | awk '/inet/ && $2 !~ /^127/ {print $NF; exit}')
