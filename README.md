@@ -17,9 +17,15 @@ chattr -i /etc/resolv.conf
 
 chattr +i /etc/resolv.conf
 
+查询dns
+
+cat /etc/resolv.conf
+
+
 系统关闭防火墙
 ufw disable
 
+c系统关闭防火墙
 systemctl stop firewalld && systemctl disable firewalld
 
 关闭ipv4
