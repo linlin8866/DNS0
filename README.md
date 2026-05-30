@@ -14,4 +14,7 @@ chattr -i /etc/resolv.conf
 chattr +i /etc/resolv.conf
 
 系统关闭防火墙
+ufw disable
+
+systemctl stop firewalld && systemctl disable firewalld
 
